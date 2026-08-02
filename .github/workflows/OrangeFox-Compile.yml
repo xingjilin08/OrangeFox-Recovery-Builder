@@ -113,11 +113,6 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
         set -e
         lunch ${{ inputs.DEVICE_NAME }}-eng
-        while true; do
-          sleep 150  # 每5分钟
-          sudo sync && sudo sysctl -w vm.drop_caches=1
-        done &
-        CLEANUP_PID=$!
         mka -j1 ${{ inputs.BUILD_TARGET }}image
 
     - name: 💿 整理镜像
