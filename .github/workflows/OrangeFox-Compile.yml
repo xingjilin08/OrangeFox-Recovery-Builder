@@ -112,7 +112,7 @@ jobs:
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         set -e
-        lunch ${{ inputs.DEVICE_NAME }}-eng && mka -j4 ${{ inputs.BUILD_TARGET }}image
+        lunch ${{ inputs.DEVICE_NAME }}-eng && mka -j2 ${{ inputs.BUILD_TARGET }}image
 
     - name: 💿 整理镜像
       run: |
